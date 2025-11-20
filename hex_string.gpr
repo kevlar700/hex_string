@@ -1,0 +1,44 @@
+with "config/hex_string_config.gpr";
+project Hex_String is
+
+   for Library_Name use "Hex_String";
+   for Library_Version use Project'Library_Name & ".so." & Hex_String_Config.Crate_Version;
+
+   for Source_Dirs use ("src/", "config/");
+   for Object_Dir use "obj/" & Hex_String_Config.Build_Profile;
+   for Create_Missing_Dirs use "True";
+   for Library_Dir use "lib";
+
+   type Library_Type_Type is ("relocatable", "static", "static-pic");
+   Library_Type : Library_Type_Type :=
+     external ("HEX_STRING_LIBRARY_TYPE", external ("LIBRARY_TYPE", "static"));
+   for Library_Kind use Library_Type;
+
+   package Compiler is
+     for Default_Switches ("Ada") use Hex_String_Config.Ada_Compiler_Switches
+       & ("-gnat2022");
+     for Local_Configuration_Pragmas use "gnat.adc";
+   end Compiler;
+
+   package Binder is
+      for Switches ("Ada") use ("-Es"); --  Symbolic traceback
+   end Binder;
+
+   package Install is
+      for Artifacts (".") use ("share");
+   end Install;
+
+  package Pretty_Printer is
+      for Default_Switches ("ada") use ("--eol=unix",
+                                        "--call-threshold=1",
+                                        "--par-threshold=1",
+                                        "--vertical-enum-types",
+                                        "--vertical-named-aggregates",
+                                        "-W8",
+                                        "-c5",
+                                        "-c4",
+                                        "--separate-loop-then",
+                                        "--separate-then");
+   end Pretty_Printer;
+
+end Hex_String;

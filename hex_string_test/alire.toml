@@ -1,0 +1,21 @@
+name = "hex_string_test"
+description = "Testing package for hex_string"
+version = "0.1.0-dev"
+
+authors = ["Kevin Chadwick"]
+maintainers = ["Kevin Chadwick <kc-github@chadwicks.me.uk>"]
+maintainers-logins = ["kevlar700"]
+licenses = "0BSD"
+website = ""
+tags = []
+
+executables = ["hex_string_test"]
+
+[[depends-on]]
+hex_string = "*"
+
+[[pins]]
+hex_string = { path='..' }
+
+[[depends-on]]
+gnatprove = "^15.1.0"
