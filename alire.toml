@@ -1,6 +1,6 @@
 name = "hex_string"
-description = "Get a string of alost any type as hex with underscores"
-version = "0.1.0-dev"
+description = "Get a string of almost any type as hex with underscores"
+version = "0.1.0"
 
 authors = ["Kevin Chadwick"]
 maintainers = ["Kevin Chadwick <kc-github@chadwicks.me.uk>"]
