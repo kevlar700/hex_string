@@ -53,7 +53,8 @@ package Hex_String is
    procedure Image_High
      (Value      :     Item;
       The_Image  : out String;
-      Hex_Status : out Status_Code);
+      Hex_Status : out Status_Code) with
+     Relaxed_Initialization => The_Image;
 
    --  Fills a String with the hex representation. Standalone Scalars will be
    --  in Low_Order (Little Endian Byte Order).
@@ -69,7 +70,8 @@ package Hex_String is
    procedure Image_Low
      (Value      :     Item;
       The_Image  : out String;
-      Hex_Status : out Status_Code);
+      Hex_Status : out Status_Code) with
+     Relaxed_Initialization => The_Image;
 
 private
 
@@ -78,6 +80,6 @@ private
       Image_Position   : in out Natural;
       Track_Underscore : in out Natural;
       The_Image        :    out String) with
-     Inline_Always;
+     Inline_Always, Relaxed_Initialization => The_Image;
 
 end Hex_String;
