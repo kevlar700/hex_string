@@ -4,7 +4,9 @@ This package produces a hex representation of many types as a String
 Example
 ```
 declare
-package Hex_U64 is new Hex_String (Item => Unsigned_64);
+package Hex_U64 is new Hex_String
+   (Item                     => Unsigned_64,
+    Output_Underscores_Every => 4);
 
    Input_4 : constant Unsigned_64 := 16#C0DE_2ACE_ACE2_C0DE#;
 
