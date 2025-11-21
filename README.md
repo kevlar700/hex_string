@@ -1,21 +1,23 @@
---  This package produces a hex representation of many types as a String
---   (Including records and arrays)
---   @Example
---
---   declare
---   package Hex_U64 is new Hex_String (Item => Unsigned_64);
---
---   Input_4 : constant Unsigned_64 := 16#C0DE_2ACE_ACE2_C0DE#;
---
---   Output_4_Length : constant Integer := Hex_U64.Image_Length (Input_4);
---
---   Output_4 : String (1 .. Output_4_Length);
---
---   Hex_Status_4 : Hex_U64.Status_Code;
---
---   begin
---     Hex_U64.Image
---       (Value      => Input_4,
---        The_Image  => Output_4,
---        Hex_Status => Hex_Status_4);
---   end
+This package produces a hex representation of many types as a String
+(Including records and arrays)
+
+Example
+```
+declare
+package Hex_U64 is new Hex_String (Item => Unsigned_64);
+
+   Input_4 : constant Unsigned_64 := 16#C0DE_2ACE_ACE2_C0DE#;
+
+   Output_4_Length : constant Integer := Hex_U64.Image_Length (Input_4);
+
+   Output_4 : String (1 .. Output_4_Length);
+
+   Hex_Status_4 : Hex_U64.Status_Code;
+
+   begin
+     Hex_U64.Image
+       (Value      => Input_4,
+        The_Image  => Output_4,
+        Hex_Status => Hex_Status_4);
+   end
+```
